@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Igreja Casa da Bênção - ICB 05 NORTE BRAZLÂNDIA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#2b8cff;
+      --accent:#f6b042;
+      --muted:#6b6b6b;
+      --bg:#f7f7f8;
+      --container:1100px;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Roboto,system-ui,Segoe UI,Arial; background:var(--bg); color:#111; margin:0}
+    a{color:inherit; text-decoration:none}
+    header{background:#fff; box-shadow:0 2px 10px rgba(10,10,10,0.05); position:sticky; top:0; z-index:60}
+    .wrap{max-width:var(--container); margin:0 auto; padding:0 20px}
+    .topbar{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; gap:12px; align-items:center}
+    .brand img{height:56px; width:56px; border-radius:8px; object-fit:cover}
+    .brand h1{font-family:Montserrat, sans-serif; font-size:20px; margin:0}
+    nav{display:flex; gap:18px; align-items:center}
+    .btn-donate{background:var(--accent); padding:10px 14px; border-radius:8px; font-weight:600}
+    .menu-toggle{display:none}
+    .hero{background-image:linear-gradient(to bottom, rgba(6,30,20,0.35), rgba(6,30,20,0.15)), url(''); background-size:cover; background-position:center; color:#fff; padding:64px 0}
+    .hero-inner{display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center}
+    .hero h2{font-family:Montserrat; font-size:34px; margin:0 0 10px}
+    .hero p{margin:0 0 18px; color:rgba(255,255,255,0.92)}
+    .hero .ctas{display:flex; gap:12px}
+    .btn{padding:12px 16px; border-radius:10px; font-weight:600}
+    .btn-primary{background:var(--primary); color:#fff}
+    .btn-outline{background:transparent; border:2px solid rgba(255,255,255,0.18); color:#fff}
+    section{padding:36px 0}
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{background:#fff; border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(12,12,12,0.06)}
+    .card h3{margin:6px 0 8px}
+    .card p{margin:0; color:var(--muted)}
+    .grid-2{display:grid; grid-template-columns:2fr 1fr; gap:18px}
+    .blog-list{display:grid; gap:14px}
+    .post{display:flex; gap:12px; background:#fff; padding:12px; border-radius:10px}
+    .post img{width:120px; height:80px; object-fit:cover; border-radius:8px}
+    footer{background:#fff; padding:28px 0; margin-top:18px}
+    .footer-grid{display:flex; justify-content:space-between; gap:20px; align-items:center}
+    .modal-overlay{position:fixed; inset:0; background:rgba(0,0,0,0.5); display:none; align-items:center; justify-content:center; z-index:200}
+    .modal-overlay.open{display:flex}
+    .modal{background:#fff; width:360px; max-width:95%; border-radius:12px; padding:18px; box-shadow:0 12px 40px rgba(0,0,0,0.25); text-align:center}
+    .modal h3{margin:0 0 8px}
+    .modal img{width:260px; height:260px; object-fit:contain; border-radius:8px; background:#f5f5f5}
+    .modal .cpf{margin-top:12px; font-weight:600; letter-spacing:1px}
+    .modal .actions{display:flex; gap:10px; margin-top:12px}
+    .btn-secondary{padding:10px 12px; border-radius:8px; border:1px solid #ddd; background:#fff}
+    @media (max-width:1000px){
+      .hero-inner{grid-template-columns:1fr}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .grid-2{grid-template-columns:1fr}
+      nav{display:none}
+      .menu-toggle{display:block}
+    }
+    @media (max-width:640px){
+      .cards{grid-template-columns:1fr}
+      .brand h1{font-size:16px}
+      .hero h2{font-size:26px}
+    }
+
+/* ===== BOTÃO TRANSMISSÃO AO VIVO (SEM TELA) ===== */
+.live-link-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.live-link-card h4 {
+  margin: 0 0 10px;
+}
+
+.live-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 16px;
+}
+
+.live-btn-blue {
+  background: linear-gradient(90deg,#2b8cff,#1e66d1);
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  box-shadow: 0 8px 24px rgba(30,102,209,0.35);
+  transition: transform .15s, box-shadow .15s;
+}
+
+.live-btn-blue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(30,102,209,0.5);
+}
+
+
+.section-card {
+  background: #f0f0f0;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.gallery img:hover {
+  transform: scale(1.04);
+}
+
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(0,0,0,0.05); font-weight:600}
+    .btn-contrib{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:12px; font-weight:700; color:#fff; background:linear-gradient(90deg,#2b8cff,#1e66d1); box-shadow:0 8px 24px rgba(30,102,209,0.18); border:0; cursor:pointer}
+    .btn-contrib .icon{display:inline-flex; width:20px; height:20px}
+    .btn-donate{background:linear-gradient(90deg,#2b8cff,#1e66d1); color:#fff; padding:10px 14px; border-radius:8px; font-weight:600; box-shadow:0 6px 18px rgba(30,102,209,0.12); border:0}
+    .verse{font-size:14px; color:var(--muted); margin-top:10px; line-height:1.4; font-style:italic}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap topbar">
+      <div class="brand">
+        <img src="https://cdn.discordapp.com/attachments/1221598704079863850/1455187161635749918/Imagem_do_WhatsApp_de_2025-09-18_as_11.36.01_ddf57502.jpg?ex=6953d027&is=69527ea7&hm=d92f686c3f1931845581d10d5ddac3b834ce3a42e40b7b1e4398ec58d43c6be9&" alt="Logo Igreja Casa da Bênção">
+        <div>
+          <h1>Igreja Casa da Bênção - ICB 05 NORTE BRAZLÂNDIA</h1>
+          <div class="muted" style="font-size:13px">Missão • Comunhão • Esperança</div>
+        </div>
+      </div>
+
+      <nav aria-label="Menu principal">
+        <a href="#home">Início</a>
+        <a href="#" onclick="toggleSection('visao')">Visão e Missão</a>
+        <a href="#" onclick="toggleSection('fotografias')">Fotografias</a>
+        <a href="https://wa.me/5561986092131" target="_blank">Contato</a>
+        <a href="#" onclick="toggleSection('historia')">História</a>
+        <a class="btn-donate" href="#" onclick="openPixModal(event)">CONTRIBUA</a>
+      </nav>
+
+      <button class="menu-toggle" aria-label="Abrir menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-inner">
+        <div>
+          <div class="pill">GRAÇA E PAZ! BEM VINDO</div>
+          <h2>Seja bem-vindo à Igreja Casa da Bênção</h2>
+          <p>Um lugar para aprender a Palavra, crescer na fé e viver em comunidade. Acompanhe cultos ao vivo, participe dos nossos projetos e receba mensagens edificantes.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="#cultos">ASSISTA AO VIVO</a>
+            <a class="btn btn-outline" href="#" onclick="toggleSection('visao')">VISÃO E MISSÃO</a>
+          </div>
+          <div style="margin-top:16px; color:rgba(255,255,255,0.9)">Próximo culto: <strong>Domingo as 19h</strong></div>
+        </div>
+
+
+<div class="radio-card card" style="margin-top:16px; background:rgba(255,255,255,0.08); color:#fff; padding:16px;">
+  <h4 style="margin-top:0; color:#fff">📻 RÁDIO WEB</h4>
+
+  <iframe
+    src="https://player.srvsh.com.br/player-web/7386"
+    style="width:100%; height:420px; border:0; border-radius:8px;"
+    loading="lazy"
+    allow="autoplay">
+  </iframe>
+
+  <p style="margin-top:10px; color:rgba(255,255,255,0.85);">
+    Rádio Igreja Casa da Bênção — Ao vivo 24h
+  </p>
+</div>
+
+            </div>
+            <div style="display:flex; gap:12px; align-items:center; justify-content:space-between">
+              <div style="display:flex; gap:8px; align-items:center">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<div class="live-link-card">
+  <h4>🔵 Transmissão ao Vivo</h4>
+
+  <p class="live-desc">
+    Clique no botão abaixo para assistir ao culto ao vivo.
+  </p>
+
+  <button
+    class="live-btn-blue"
+    onclick="window.open('LINK_DA_LIVE_AQUI','_blank')">
+    ▶ Assistir ao vivo
+  </button>
+</div>
+
+
+<!-- VISÃO, MISSÃO E HISTÓRIA -->
+<section id="visao-historia" class="wrap">
+
+  <!-- VISÃO E MISSÃO -->
+  <div id="visao" class="section-card" style="display:none;">
+    <h3>VISÃO E MISSÃO</h3>
+    <p><strong>Missão:</strong> Ide por todo o mundo, pregai o evangelho a toda criatura. Marcos 16:15</p>
+    <p><strong>Visão:</strong> Ser uma Igreja família, onde as pessoas são libertadas em nome de Jesus e se tornam pessoas de sucesso tendo dignidade, exercendo a cidadania e interagindo nas áreas espirituais, sociais e políticas.</p>
+    <p><strong>Objetivo:</strong> Edificar uma igreja de vencedores, onde cada membro é um ministro e cada casa é uma extensão da Igreja, conquistando assim a nossa geração para Cristo.</p>
+    <p><strong>Em que Cremos:</strong></p>
+    <ul>
+      <li>Pai, Filho e Espírito Santo: Em um só Deus, eternamente subsistente em três pessoas.</li>
+      <li>Na inspiração verbal da Bíblia Sagrada como regra infalível de fé.</li>
+      <li>Na concepção virginal de Jesus, sua morte vicária, ressurreição e ascensão.</li>
+      <li>Na pecaminosidade do homem e na necessidade de arrependimento e fé em Cristo.</li>
+      <li>No novo nascimento pela fé em Cristo e pelo poder do Espírito Santo.</li>
+      <li>No perdão dos pecados e na salvação perfeita pela fé no sacrifício de Jesus.</li>
+      <li>No batismo bíblico por imersão e no batismo no Espírito Santo com evidência de línguas.</li>
+      <li>Na vida santa, nos dons espirituais e na segunda vinda premilenial de Cristo.</li>
+      <li>No juízo vindouro e na vida eterna de gozo para os fiéis e de tormento para os infiéis.</li>
+    </ul>
+  </div>
+
+  <!-- HISTÓRIA COMPLETA -->
+  <div id="historia" class="section-card" style="display:none;">
+    <h3>HISTÓRIA</h3>
+    <p><strong>ICB - Casa da Bênção 05 Norte Brazlândia - Igreja Local</strong></p>
+    
+    <p>A Casa da Bênção chegou em Brazlândia em 1974 no endereço Qd 05 Norte, lote 13, avenida comercial, onde permanece até hoje. Já são 50 anos de serviços prestados à comunidade e levando o evangelho de Cristo a milhares de pessoas.</p>
+
+    <p>Ao longo desses anos, a igreja passou por mudanças e transformações, contando com a direção de Deus, a obediência dos pastores e membros locais, e o apoio da igreja sede, a Catedral da Bênção, situada no Setor F Sul, Taguatinga.</p>
+
+    <p>No início, era apenas um pequeno barraco de madeira. Na gestão do pastor Leydmar, com apoio de irmãos locais e enviados pelo Miss. Doriel de Oliveira, construíram um grande templo durante um feriado de carnaval. Posteriormente, na gestão do Miss. Valdir Miasato e Pra. Cláudia Miasato (2010-2015), foram construídas salas do ministério Kids, novos banheiros, sala pastoral e modernização da fachada e vitrais.</p>
+
+    <h4>Pastores que já passaram pela ICB 05 Norte:</h4>
+    <ul>
+      <li>Prs. Carlos e Maria Docília - 1975</li>
+      <li>Prs. César Hernandes e Eva – 1976–1979</li>
+      <li>Pr. Fortunato, Pr. Fagundes, Pr. Magera, Pr. Genésio, Pr. Luís, Pr. Ivanildo, Pr. Américo, Pr. Carlos Neres</li>
+      <li>Miss. Amilton e Léia - 1995</li>
+      <li>Prs. Carlos e Lane - 1997</li>
+      <li>Miss. Leydmar, Miss. Edmar Machado, Prs. Alaor e Cida, Prs. Roni e Marta, Pr. Wilson, Miss. Messias, Miss. Eulálio e Helena, Miss. Xávier Godói</li>
+      <li>Pr. Geraldo Hélio - 2009</li>
+      <li>Miss. Valdir Miasato e Pra. Cláudia 2010–2015</li>
+      <li>Prs. Lyncoln e Milquelen 2015–2024</li>
+      <li>Prs. Samuel e Luciana - 2024–2025</li>
+      <li>Magno e Inúvia Rocha –Ma/Go 2025</li>
+    </ul>
+
+    <p>Alguns pastores auxiliares também cooperaram na obra local. Observa-se que Pr. Antonio e Maria do Carmo são pioneiros, permanecendo 50 anos na igreja.</p>
+
+    <p>No dia 19/10/2024, sob a gestão dos pastores Samuel e Luciana, foi comemorado o Jubileu de Ouro da ICB 05 Norte com a presença do Apóstolo Jair de Oliveira e esposa Miss. Graça, além de outros pastores locais. Somos uma igreja viva e ativa, cumprindo o IDE de Cristo e gerando frutos para o Reino de Deus, agora caminhando para os 51 anos de vida em Brazlândia.</p>
+
+    <h4>Origem da Casa da Bênção:</h4>
+    <p>Em Junho de 1964, na cidade de Belo Horizonte, nascia a Igreja Tabernáculo Evangélico de Jesus. Fundada pelos pastores Doriel de Oliveira e Ruth Brunelli de Oliveira, em plena época de perseguição ao evangelho no Brasil, a igreja enfrentou grandes desafios e perseguições. O casal perseverou, ganhando apoio de novos convertidos e realizando milagres conhecidos como Casa da Bênção de Deus.</p>
+
+    <p>Em 1970, os missionários Doriel e Ruth se transferiram para Brasília, iniciando a obra na nova capital com uma pequena igreja de madeira na Vila Dimas, Taguatinga. Apesar das dificuldades e do clima de pessimismo da cidade, a fé e as orações do casal fizeram a obra crescer, culminando na construção da Catedral da Bênção em 1985, com capacidade para cinco mil pessoas, e posteriormente se espalhando pelo Brasil e pelo mundo.</p>
+
+    <p>Hoje, a Casa da Bênção possui mais de 2.000 igrejas no Brasil e diversas no exterior, incluindo Estados Unidos, Argentina, Chile, Ghana, Costa do Marfim, Japão, Inglaterra e Suíça.</p>
+  </div>
+
+</section>
+
+<!-- NEWSLETTER E CONTRIBUA -->
+<section class="wrap">
+  <div>
+    <aside>
+      <h3>Newsletter</h3>
+      <p class="muted">Cadastre seu e-mail para receber atualizações e mensagens.</p>
+      <form onsubmit="event.preventDefault(); alert('Inscrição recebida (exemplo)')" style="margin-top:12px">
+        <input type="email" required placeholder="Seu e-mail" style="width:100%; padding:12px; border-radius:8px; border:1px solid #ddd">
+        <button class="btn btn-primary" style="width:100%; margin-top:10px">Quero Receber</button>
+      </form>
+
+      <div style="margin-top:18px; background:#fff; padding:16px; border-radius:12px">
+        <h4 style="margin:0 0 6px">Contribua</h4>
+        <p class="muted" style="margin:0 0 8px">Ajude-nos a manter os trabalhos e projetos sociais.</p>
+        <div style="text-align:center; margin-top:12px">
+          <button class="btn-contrib" onclick="openPixModal(event)">
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s-6-4.35-9-7.05C-1.2 10.95 3.48 6 7.5 6c1.64 0 3.04.9 4.5 2.36C13.46 6.9 14.86 6 16.5 6 20.52 6 25.2 10.95 21 13.95 18 16.65 12 21 12 21z" fill="white"/></svg></span>
+            <span>CONTRIBUA</span>
+          </button>
+          <div class="verse">"Trazei todos os dízimos à casa do tesouro, para que haja mantimento na minha casa; e depois fazei prova de mim, diz o Senhor dos Exércitos, e eu vos abrirei as janelas do céu, e derramarei sobre vós bênção sem medida." — Malaquias 3:10</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- EVENTOS -->
+<section class="wrap section-card" id="eventos">
+  <h3>📅 EVENTOS</h3>
+  <p class="muted">Fique por dentro dos eventos da Igreja Casa da Bênção - ICB 05 Norte Brazlândia.</p>
+
+  <div style="display:grid; gap:16px; margin-top:20px;">
+    <div style="background:#fff; border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,0.06);">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+        <div>
+          <h4 style="margin:0;">Santa Ceia</h4>
+          <p class="muted" style="margin:4px 0;">Celebração especial em comunhão — adoração e renovação espiritual.</p>
+          <div style="margin-top:6px; font-weight:600; color:var(--primary);">
+            📍 Local: 05 Norte Brazlândia
+          </div>
+        </div>
+        <div style="text-align:right; min-width:180px;">
+          <div style="font-size:15px; font-weight:700; color:var(--accent);">14/12/2025</div>
+          <div class="pill" style="margin-top:4px; background:#eee;">Evento já realizado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PALAVRA DO DIA -->
+<section class="wrap section-card" id="palavra-do-dia">
+  <h3>📖 PALAVRA DO DIA</h3>
+  <p class="muted">Uma mensagem para fortalecer sua fé hoje.</p>
+
+  <div style="margin-top:20px; background:#fff; border-radius:12px; padding:22px; box-shadow:0 6px 18px rgba(0,0,0,0.06);">
+    
+    <p style="font-size:16px; font-style:italic; color:#333; line-height:1.6;">
+      “Porque eu bem sei os pensamentos que penso de vós, diz o Senhor;  
+      pensamentos de paz, e não de mal, para vos dar o fim que esperais.”
+    </p>
+
+    <div style="margin-top:10px; font-weight:700; color:var(--primary);">
+      Jeremias 29:11
+    </div>
+
+    <hr style="margin:16px 0; border:none; border-top:1px solid #eee;">
+
+    <p class="muted" style="line-height:1.6;">
+      Confie nos planos de Deus, mesmo quando você não entende o caminho.
+      Ele cuida de cada detalhe da sua vida e nunca chega atrasado.
+    </p>
+
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Igreja Casa da Bênção - ICB 05 NORTE BRAZLÂNDIA</strong>
+      <div class="muted">Rua 05 norte brazlândia</div>
+    </div>
+    <div style="text-align:right">
+      <div class="muted">Siga nas redes</div>
+      <div style="margin-top:8px">
+        <a href="https://www.facebook.com/profile.php?id=61582729165244" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Facebook</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.youtube.com/@prmagnofrocha" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">YouTube</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.instagram.com/icb5nortebrazlandia/" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">Instagram</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="pixModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal" role="document">
+    <button aria-label="Fechar" onclick="closePixModal()" style="position:absolute; right:14px; top:12px; background:transparent; border:0; font-size:18px">✕</button>
+    <h3>Contribua com a Igreja</h3>
+    <p class="muted">Escaneie o QR ou copie o telefone para fazer o PIX</p>
+    <img id="pixQr" src="https://cdn.discordapp.com/attachments/1221598704079863850/1455194223879131313/image.png?ex=6953d6bb&is=6952853b&hm=8ae13dc04d267f17a1f1d6832d2341969670321885024c1233524712ae0ef3ac&" alt="QR Code da igreja">
+    <div class="cpf" id="pixCpf">Telefone: 61986092131</div>
+    <div class="actions">
+      <button class="btn-primary" onclick="copyCpf()">COPIAR CHAVE</button>
+      <button class="btn-secondary" onclick="closePixModal()">FECHAR</button>
+    </div>
+    <small style="display:block; margin-top:10px; color:var(--muted)">Ao copiar, cole a chave no app do seu banco para pagar via PIX.</small>
+  </div>
+</div>
+
+    <section id="fotografias" class="wrap section-card" style="display:none;">
+      <h3>GALERIA DE FOTOGRAFIAS</h3>
+      <p class="muted">Momentos especiais da Igreja Casa da Bênção - ICB 05 Norte Brazlândia.</p>
+
+      <div class="gallery">
+        <img src="https://media.discordapp.net/attachments/1221598704079863850/1455193303824863322/Imagem_do_WhatsApp_de_2025-12-29_as_10.27.18_a780644c.jpg?ex=6953d5df&is=6952845f&hm=c5c54e301bf094a0fa0aaa5ee17f161af65f0922ca964a05acf0eebef1622879&=&format=webp&width=616&height=821" alt="Culto">
+        <img src="https://media.discordapp.net/attachments/1221598704079863850/1455193304323981333/Imagem_do_WhatsApp_de_2025-12-29_as_10.27.17_4d4da705.jpg?ex=6953d5df&is=6952845f&hm=1ba5f668e5ddc4a7b5f8b9a299aa43da73920b868d7eb503c34b463adf27bb1c&=&format=webp&width=616&height=410" alt="Louvor">
+        <img src="https://media.discordapp.net/attachments/1221598704079863850/1455193305175425055/Imagem_do_WhatsApp_de_2025-12-29_as_10.27.17_fdcb553e.jpg?ex=6953d5e0&is=69528460&hm=371f16c7d1bef8946faf0a67f93005e00749d868add2360cbe3931916c80e683&=&format=webp&width=616&height=410" alt="Comunhão">
+        <img src="https://media.discordapp.net/attachments/1221598704079863850/1455193305506643978/Imagem_do_WhatsApp_de_2025-12-29_as_10.27.17_ea3e0f5e.jpg?ex=6953d5e0&is=69528460&hm=aa76c86c69d1e83c1fc7f60f029d74439156d65ffc0dd9cc1d0f4c927f9b5aa7&=&format=webp&width=616&height=410" alt="Evento especial">
+      </div>
+    </section>
+
+  </main>
+
+  <!-- (restante do seu código continua igual, footer, modal, script etc.) -->
+<script>
+function toggleMenu(){
+  const nav = document.querySelector('nav');
+  if(!nav) return;
+  if(nav.style.display === 'flex') nav.style.display = 'none'; else nav.style.display = 'flex';
+  nav.style.flexDirection = 'column';
+  nav.style.position = 'absolute';
+  nav.style.right = '20px';
+  nav.style.top = '70px';
+  nav.style.background = '#fff';
+  nav.style.padding = '12px';
+  nav.style.borderRadius = '10px';
+  nav.style.boxShadow = '0 6px 20px rgba(10,10,10,0.08)';
+}
+
+const pixModal = document.getElementById('pixModal');
+function openPixModal(e){
+  if(e) e.preventDefault();
+  if(!pixModal) return;
+  pixModal.classList.add('open');
+  pixModal.setAttribute('aria-hidden','false');
+}
+function closePixModal(){
+  if(!pixModal) return;
+  pixModal.classList.remove('open');
+  pixModal.setAttribute('aria-hidden','true');
+}
+pixModal && pixModal.addEventListener('click', function(ev){
+  if(ev.target === pixModal) closePixModal();
+});
+document.addEventListener('keydown', function(ev){
+  if(ev.key === 'Escape') closePixModal();
+});
+function copyCpf(){
+  const cpfText = document.getElementById('pixCpf').textContent.replace('CPF:','').trim();
+  navigator.clipboard && navigator.clipboard.writeText(cpfText).then(()=>{ alert('CPF copiado: ' + cpfText); }).catch(()=>{ const ta = document.createElement('textarea'); ta.value = cpfText; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); alert('CPF copiado: ' + cpfText);}catch(e){ alert('Não foi possível copiar automaticamente.'); } ta.remove(); });
+}
+
+function toggleSection(sectionId){
+  const section = document.getElementById(sectionId);
+  if(!section) return;
+  const isVisible = section.style.display === 'block';
+  section.style.display = isVisible ? 'none' : 'block';
+  if(!isVisible){
+    section.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
+</script>
+</body>
+</html>
+
+
