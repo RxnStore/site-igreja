@@ -73,7 +73,7 @@
   background: rgba(255,255,255,0.08);
   border-radius: 16px;
   padding: 20px;
-  color: #fff;
+  color: #292929;
   text-align: center;
 }
 
@@ -83,7 +83,7 @@
 
 .live-desc {
   font-size: 14px;
-  color: rgba(255,255,255,0.85);
+  color: rgba(43, 43, 43, 0.85);
   margin-bottom: 16px;
 }
 
@@ -143,7 +143,7 @@
   <header>
     <div class="wrap topbar">
       <div class="brand">
-        <img src="https://cdn.discordapp.com/attachments/1221598704079863850/1455187161635749918/Imagem_do_WhatsApp_de_2025-09-18_as_11.36.01_ddf57502.jpg?ex=6953d027&is=69527ea7&hm=d92f686c3f1931845581d10d5ddac3b834ce3a42e40b7b1e4398ec58d43c6be9&" alt="Logo Igreja Casa da Bênção">
+        <img src="https://media.discordapp.net/attachments/1221598704079863850/1455187161635749918/Imagem_do_WhatsApp_de_2025-09-18_as_11.36.01_ddf57502.jpg?ex=695db367&is=695c61e7&hm=1e2ba4699277914090253d0cbe893fc601d335a4f8245b5344f6015e42a9b9d0&=&format=webp&width=720&height=720" alt="Logo Igreja Casa da Bênção">
         <div>
           <h1>Igreja Casa da Bênção - ICB 05 NORTE BRAZLÂNDIA</h1>
           <div class="muted" style="font-size:13px">Missão • Comunhão • Esperança</div>
@@ -171,7 +171,7 @@
           <h2>Seja bem-vindo à Igreja Casa da Bênção</h2>
           <p>Um lugar para aprender a Palavra, crescer na fé e viver em comunidade. Acompanhe cultos ao vivo, participe dos nossos projetos e receba mensagens edificantes.</p>
           <div class="ctas">
-            <a class="btn btn-primary" href="#cultos">ASSISTA AO VIVO</a>
+            <a class="btn btn-outline" href="#" onclick="toggleSection('historia')">HISTÓRIA</a>
             <a class="btn btn-outline" href="#" onclick="toggleSection('visao')">VISÃO E MISSÃO</a>
           </div>
           <div style="margin-top:16px; color:rgba(255,255,255,0.9)">Próximo culto: <strong>Domingo as 19h</strong></div>
@@ -188,10 +188,10 @@
     allow="autoplay">
   </iframe>
 
-  <p style="margin-top:10px; color:rgba(255,255,255,0.85);">
-    Rádio Igreja Casa da Bênção — Ao vivo 24h
-  </p>
-</div>
+<p style="margin-top:10px; color:#000;">
+  Rádio Igreja Casa da Bênção — Ao vivo 24h
+</p>
+
 
             </div>
             <div style="display:flex; gap:12px; align-items:center; justify-content:space-between">
@@ -323,11 +323,43 @@
           </div>
         </div>
         <div style="text-align:right; min-width:180px;">
-          <div style="font-size:15px; font-weight:700; color:var(--accent);">14/12/2025</div>
-          <div class="pill" style="margin-top:4px; background:#eee;">Evento já realizado</div>
+          <div style="font-size:15px; font-weight:700; color:var(--accent);">11/01/2026</div>
+          <div class="pill" style="margin-top:4px; background:#eee;">Evento não realizado ainda!</div>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section class="wrap section-card">
+  <h3>📍 LOCALIZAÇÃO</h3>
+  <p class="muted">Veja onde fica a Igreja Casa da Bênção - ICB 05 Norte Brazlândia.</p>
+
+  <div style="
+    margin-top:16px;
+    background:#fff;
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+  ">
+    <div>
+      <strong>Igreja Casa da Bênção</strong>
+      <div class="muted" style="margin-top:4px;">
+        Qd 05 Norte – Brazlândia
+      </div>
+    </div>
+
+    <button
+      class="btn btn-primary"
+      onclick="window.open('https://www.google.com/maps/search/?api=1&query=Igreja+Casa+da+Bênção+05+Norte+Brazlândia','_blank')">
+      📍 LOCALIZAÇÃO
+    </button>
   </div>
 </section>
 
@@ -339,23 +371,24 @@
   <div style="margin-top:20px; background:#fff; border-radius:12px; padding:22px; box-shadow:0 6px 18px rgba(0,0,0,0.06);">
     
     <p style="font-size:16px; font-style:italic; color:#333; line-height:1.6;">
-      “Porque eu bem sei os pensamentos que penso de vós, diz o Senhor;  
-      pensamentos de paz, e não de mal, para vos dar o fim que esperais.”
+      “Entrega o teu caminho ao Senhor; confia nele, e ele tudo fará.”
     </p>
 
     <div style="margin-top:10px; font-weight:700; color:var(--primary);">
-      Jeremias 29:11
+      Salmos 37:5
     </div>
 
     <hr style="margin:16px 0; border:none; border-top:1px solid #eee;">
 
     <p class="muted" style="line-height:1.6;">
-      Confie nos planos de Deus, mesmo quando você não entende o caminho.
-      Ele cuida de cada detalhe da sua vida e nunca chega atrasado.
+      Entregue seus planos, sonhos e preocupações nas mãos de Deus.
+      Quando você confia n’Ele, o Senhor guia seus passos e age no tempo certo,
+      mesmo quando tudo parece difícil.
     </p>
 
   </div>
 </section>
+
 
 
 <footer>
